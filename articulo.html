@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quién inventó la bombilla? — Ingenio</title>
+  <meta name="description" content="Descubre quién inventó las cosas que usas cada día, la historia de los grandes inventores y las curiosidades de la ciencia y la tecnología.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6L4 19a2 2 0 0 0 1.7 3h12.6A2 2 0 0 0 20 19L14 8V2M7 15h10"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.5 7L12 17.5 5.7 21l1.5-7L2 9.3l7-.8z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 13l20-9-6 18-4-7-10-2z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4zM20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="container">
+    <span id="today">Bienvenido a Ingenio</span>
+    <span class="links">
+      <a href="index.html#">Acerca de</a>
+      <a href="index.html#">Contacto</a>
+      <a href="index.html#">Publicidad</a>
+    </span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark"><svg width="20" height="20"><use href="#i-bulb"/></svg></span>
+      <span>Ingenio<span class="dot">.</span></span>
+    </a>
+    <nav class="main-nav" id="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#inventos" class="active">Inventos</a></li>
+        <li><a href="index.html#inventores">Inventores</a></li>
+        <li><a href="index.html#categorias">Ciencia</a></li>
+        <li><a href="index.html#categorias">Tecnología</a></li>
+        <li><a href="index.html#curiosidades">Curiosidades</a></li>
+      </ul>
+    </nav>
+    <form class="search" role="search" onsubmit="return false">
+      <input type="search" placeholder="Buscar inventos..." aria-label="Buscar" id="search-input">
+      <button type="submit" aria-label="Buscar"><svg width="14" height="14"><use href="#i-search"/></svg></button>
+    </form>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <svg width="26" height="26"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="index.html#inventos">Inventos</a> › La bombilla</nav>
+  <header class="article-head">
+    <span class="tag">Inventos</span>
+    <h1>¿Quién inventó realmente la bombilla? La historia que no te contaron</h1>
+    <p class="lead">Solemos atribuir la luz eléctrica a un único nombre, pero la bombilla fue el resultado de casi un siglo de experimentos, rivalidades y mejoras sucesivas.</p>
+    <div class="author">
+      <span class="avatar">RI</span>
+      <div><strong>Redacción Ingenio</strong><br><span class="meta">Actualizado recientemente · 8 min de lectura</span></div>
+    </div>
+  </header>
+
+  <div class="thumb t2 article-hero"><svg><use href="#i-bulb"/></svg></div>
+
+  <article class="article-body">
+    <p>Pocas imágenes representan mejor la idea de «tener una idea» que una bombilla encendida. Resulta irónico, entonces, que su propia historia sea tan poco conocida. Detrás de ese pequeño globo de vidrio hay decenas de nombres, laboratorios de varios países y un problema técnico que tardó generaciones en resolverse: conseguir que un filamento brillara durante horas sin quemarse.</p>
+
+    <h2>Los primeros destellos</h2>
+    <p>A comienzos del siglo XIX, los experimentos con baterías demostraron que la electricidad podía producir luz. Las primeras lámparas de arco generaban un resplandor intenso entre dos electrodos de carbono, útil para faros y grandes espacios, pero demasiado potente, ruidoso y costoso para un hogar.</p>
+    <p>La alternativa era la incandescencia: hacer pasar corriente por un material hasta que se calentara y emitiera luz. El reto era doble. El filamento se oxidaba rápidamente en contacto con el aire y, además, los materiales disponibles se fundían o se rompían con facilidad.</p>
+
+    <div class="infobox">
+      <dl>
+        <dt>Invento</dt><dd>Lámpara incandescente</dd>
+        <dt>Época</dt><dd>Siglo XIX (desarrollo entre 1800 y 1880)</dd>
+        <dt>Problema clave</dt><dd>Filamento duradero y vacío dentro del bulbo</dd>
+        <dt>Impacto</dt><dd>Iluminación doméstica y expansión de las redes eléctricas</dd>
+      </dl>
+    </div>
+
+    <h2>Una carrera con muchos corredores</h2>
+    <p>Durante décadas, inventores de Inglaterra, Francia, Rusia, Alemania y Estados Unidos probaron filamentos de platino, carbono e incluso fibras vegetales carbonizadas. Algunos lograron lámparas que funcionaban, aunque duraban poco o resultaban demasiado caras para fabricarse en serie.</p>
+    <p>En Inglaterra, Joseph Swan presentó una lámpara de filamento de carbono que funcionaba de forma convincente. Casi al mismo tiempo, en Estados Unidos, el equipo de Thomas Edison trabajaba con un enfoque muy sistemático: probar miles de materiales y mejorar la bomba de vacío para extraer el aire del bulbo.</p>
+
+    <blockquote>La bombilla no fue un chispazo de genio aislado, sino el resultado de muchas manos mejorando el trabajo de otras.</blockquote>
+
+    <h2>Más que una bombilla: un sistema</h2>
+    <p>La gran aportación del equipo de Edison no fue solo una lámpara más duradera, sino la visión de un sistema completo: generadores, cables, contadores, interruptores y enchufes. Una bombilla sin red eléctrica era una curiosidad; con ella, se convirtió en un producto que podía llegar a cada casa.</p>
+    <p>Tras disputas legales, Swan y Edison terminaron uniendo fuerzas en una empresa conjunta en el Reino Unido. Años más tarde, los filamentos de tungsteno y el relleno de gases inertes harían las bombillas mucho más eficientes y duraderas.</p>
+
+    <h2>El final de una era</h2>
+    <p>Más de un siglo después, la bombilla incandescente ha ido dando paso a tecnologías como las lámparas fluorescentes compactas y, sobre todo, los LED, que consumen una fracción de la energía. Aun así, su silueta sigue siendo el símbolo universal de una buena idea.</p>
+  </article>
+
+  <div class="share">
+    <strong>Compartir:</strong>
+    <a href="#" onclick="navigator.clipboard && navigator.clipboard.writeText(location.href); this.textContent='¡Enlace copiado!'; return false;">Copiar enlace</a>
+    <a href="#">X / Twitter</a><a href="#">Facebook</a><a href="#">WhatsApp</a>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>También te puede interesar</h2></div>
+    <div class="card-grid">
+      <a href="articulo.html" class="card"><div class="thumb t8"><svg><use href="#i-user"/></svg></div><div class="body"><span class="tag">Biografía</span><h3>Nikola Tesla: el visionario de la corriente alterna</h3><span class="meta">10 min</span></div></a>
+      <a href="articulo.html" class="card"><div class="thumb t6"><svg><use href="#i-gear"/></svg></div><div class="body"><span class="tag blue">Industria</span><h3>La máquina de vapor y la Revolución Industrial</h3><span class="meta">9 min</span></div></a>
+      <a href="articulo.html" class="card"><div class="thumb t4"><svg><use href="#i-chip"/></svg></div><div class="body"><span class="tag blue">Tecnología</span><h3>El transistor: la pieza diminuta detrás de la electrónica</h3><span class="meta">8 min</span></div></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg width="20" height="20"><use href="#i-bulb"/></svg></span><span>Ingenio<span class="dot">.</span></span></a>
+        <p>Contamos la historia detrás de los inventos que cambiaron el mundo y de las personas que los hicieron posibles.</p>
+      </div>
+      <div>
+        <h4>Secciones</h4>
+        <ul><li><a href="index.html#inventos">Inventos</a></li><li><a href="index.html#inventores">Inventores</a></li><li><a href="index.html#categorias">Ciencia</a></li><li><a href="index.html#curiosidades">Curiosidades</a></li></ul>
+      </div>
+      <div>
+        <h4>Ingenio</h4>
+        <ul><li><a href="index.html#">Quiénes somos</a></li><li><a href="index.html#">Contacto</a></li><li><a href="index.html#">Publicidad</a></li><li><a href="index.html#">Colabora</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="index.html#">Aviso legal</a></li><li><a href="index.html#">Privacidad</a></li><li><a href="index.html#">Cookies</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year"></span> Ingenio. Todos los derechos reservados.</span>
+      <span>Hecho con curiosidad.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" aria-label="Volver arriba">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
