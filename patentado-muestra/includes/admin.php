@@ -347,6 +347,7 @@ function pm_handle_save_settings() {
 				break;
 			case 'primary_color':
 			case 'accent_color':
+			case 'button_color':
 				$out[ $key ] = sanitize_hex_color( $val ) ? sanitize_hex_color( $val ) : $default;
 				break;
 			case 'pass_score':
@@ -426,6 +427,7 @@ function pm_admin_settings_page() {
 				$field( 'logo_url', 'Logo', 'media' );
 				$field( 'primary_color', 'Color principal', 'color' );
 				$field( 'accent_color', 'Color de acento', 'color' );
+				$field( 'button_color', 'Color de botones', 'color' );
 				$field( 'signer_name', 'Firma (nombre)' );
 				$field( 'signer_title', 'Firma (cargo)' );
 				?>

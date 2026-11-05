@@ -46,8 +46,8 @@ function pm_handle_login() {
 		wp_safe_redirect( pm_page_url( array( 'pm_login_error' => 'expired' ) ) );
 		exit;
 	}
-	$email = sanitize_email( wp_unslash( $_POST['email'] ?? '' ) );
-	$user  = get_user_by( 'email', $email );
+	$login = trim( (string) wp_unslash( $_POST['email'] ?? '' ) );
+	$user  = is_email( $login ) ? get_user_by( 'email', sanitize_email( $login ) ) : get_user_by( 'login', sanitize_user( $login ) );
 	if ( ! $user ) {
 		wp_safe_redirect( pm_page_url( array( 'pm_login_error' => 'invalid' ) ) );
 		exit;
@@ -74,7 +74,8 @@ function pm_handle_login() {
 
 add_action( 'wp_enqueue_scripts', 'pm_register_assets' );
 function pm_register_assets() {
-	wp_register_style( 'pm-front', PM_URL . 'assets/muestra.css', array(), PM_VERSION );
+	wp_register_style( 'pm-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700;900&display=swap', array(), null );
+	wp_register_style( 'pm-front', PM_URL . 'assets/muestra.css', array( 'pm-fonts' ), PM_VERSION );
 	wp_register_script( 'pm-vimeo', 'https://player.vimeo.com/api/player.js', array(), null, true );
 	wp_register_script( 'pm-front', PM_URL . 'assets/muestra.js', array(), PM_VERSION, true );
 }
@@ -82,9 +83,10 @@ function pm_register_assets() {
 function pm_inline_colors() {
 	$s = pm_settings();
 	return sprintf(
-		'.pm-app{--pm-primary:%1$s;--pm-accent:%2$s;}',
+		'.pm-app{--pm-primary:%1$s;--pm-accent:%2$s;--pm-button:%3$s;}',
 		esc_attr( $s['primary_color'] ),
-		esc_attr( $s['accent_color'] )
+		esc_attr( $s['accent_color'] ),
+		esc_attr( $s['button_color'] )
 	);
 }
 
@@ -118,7 +120,7 @@ function pm_render_header( $user ) {
 			<?php if ( $s['logo_url'] ) : ?>
 				<img src="<?php echo esc_url( $s['logo_url'] ); ?>" alt="<?php echo esc_attr( $s['program_name'] ); ?>">
 			<?php else : ?>
-				<span><?php echo esc_html( $s['program_name'] ); ?></span>
+				<span class="pm-wordmark"><?php echo esc_html( $s['program_name'] ); ?><sup>®</sup></span>
 			<?php endif; ?>
 		</a>
 		<nav>
@@ -141,22 +143,26 @@ function pm_render_login() {
 	?>
 	<div class="pm-app">
 		<div class="pm-login">
-			<?php if ( $s['logo_url'] ) : ?>
-				<img class="pm-login-logo" src="<?php echo esc_url( $s['logo_url'] ); ?>" alt="">
-			<?php endif; ?>
-			<p class="pm-kicker">Clase muestra · <?php echo esc_html( $s['program_name'] ); ?></p>
-			<h2><?php echo esc_html( $s['class_title'] ); ?></h2>
-			<p class="pm-muted">Ingresa con tu email y la contraseña que te enviamos.</p>
-			<?php if ( $error ) : ?>
-				<div class="pm-error"><?php echo 'expired' === $error ? 'La sesión expiró, inténtalo de nuevo.' : 'El email o la contraseña no son correctos.'; ?></div>
-			<?php endif; ?>
-			<form method="post" action="<?php echo esc_url( pm_page_url() ); ?>">
-				<input type="hidden" name="pm_login" value="1">
-				<?php wp_nonce_field( 'pm_login', '_pmnonce' ); ?>
-				<label>Email<input type="email" name="email" autocomplete="email" required></label>
-				<label>Contraseña<input type="password" name="password" autocomplete="current-password" required></label>
-				<button class="pm-btn pm-btn-block" type="submit">Ingresar</button>
-			</form>
+			<div class="pm-login-head">
+				<?php if ( $s['logo_url'] ) : ?>
+					<img class="pm-login-logo" src="<?php echo esc_url( $s['logo_url'] ); ?>" alt="<?php echo esc_attr( $s['program_name'] ); ?>">
+				<?php else : ?>
+					<span class="pm-wordmark"><?php echo esc_html( $s['program_name'] ); ?><sup>®</sup></span>
+				<?php endif; ?>
+			</div>
+			<div class="pm-login-body">
+				<p class="pm-login-sub">Clase muestra: <strong><?php echo esc_html( $s['class_title'] ); ?></strong></p>
+				<form method="post" action="<?php echo esc_url( pm_page_url() ); ?>">
+					<input type="hidden" name="pm_login" value="1">
+					<?php wp_nonce_field( 'pm_login', '_pmnonce' ); ?>
+					<label>Usuario (correo)<input type="text" name="email" autocomplete="username" required></label>
+					<label>Contraseña<input type="password" name="password" autocomplete="current-password" required></label>
+					<button class="pm-btn pm-btn-block pm-btn-login" type="submit">Entrar a mi clase</button>
+				</form>
+				<?php if ( $error ) : ?>
+					<p class="pm-login-error"><?php echo 'expired' === $error ? 'La sesión expiró, inténtalo de nuevo.' : 'El correo o la contraseña no son correctos.'; ?></p>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 	<?php

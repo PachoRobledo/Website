@@ -1,22 +1,25 @@
 /* Patentado – Clase Muestra */
 .pm-app {
-	--pm-primary: #1f3a5f;
-	--pm-accent: #c9a227;
+	--pm-primary: #2c3e50;
+	--pm-accent: #d4a843;
+	--pm-button: #215387;
 	--pm-text: #1d2433;
 	--pm-muted: #667085;
 	--pm-line: #e4e7ec;
-	--pm-bg: #f7f8fa;
+	--pm-bg: #f8f6f3;
 	--pm-ok: #14804a;
 	--pm-err: #b42318;
 	max-width: 1080px;
 	margin: 0 auto;
 	padding: 16px;
 	color: var(--pm-text);
-	font-family: inherit;
+	font-family: Lato, system-ui, -apple-system, sans-serif;
 	box-sizing: border-box;
 }
 .pm-app *, .pm-app *::before, .pm-app *::after { box-sizing: border-box; }
-.pm-app h1, .pm-app h2, .pm-app h3 { color: var(--pm-text); line-height: 1.2; }
+.pm-app h1, .pm-app h2, .pm-app h3 { color: var(--pm-primary); line-height: 1.25; font-family: Merriweather, Georgia, serif; }
+.pm-wordmark { font-family: Merriweather, Georgia, serif; font-weight: 900; color: var(--pm-primary); }
+.pm-wordmark sup { color: var(--pm-accent); font-size: .65em; margin-left: 1px; }
 
 .pm-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0 20px; border-bottom: 1px solid var(--pm-line); margin-bottom: 24px; flex-wrap: wrap; }
 .pm-brand { font-weight: 800; font-size: 20px; color: var(--pm-primary); text-decoration: none; }
@@ -36,11 +39,11 @@
 .pm-card h2 { margin: 0 0 16px; font-size: 20px; }
 .pm-center { text-align: center; }
 
-.pm-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--pm-primary); color: #fff !important; border: 2px solid var(--pm-primary); border-radius: 10px;
-	padding: 11px 20px; font-weight: 700; font-size: 15px; text-decoration: none !important; cursor: pointer; line-height: 1.2; transition: filter .15s; }
+.pm-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--pm-button); color: #fff !important; border: 2px solid var(--pm-button); border-radius: 10px;
+	padding: 11px 20px; font-family: inherit; font-weight: 700; font-size: 15px; text-decoration: none !important; cursor: pointer; line-height: 1.2; transition: filter .15s; }
 .pm-btn:hover { filter: brightness(1.12); }
 .pm-btn:disabled { opacity: .6; cursor: wait; }
-.pm-btn-outline { background: transparent; color: var(--pm-primary) !important; }
+.pm-btn-outline { background: transparent; color: var(--pm-button) !important; }
 .pm-btn-small { padding: 8px 14px; font-size: 14px; }
 .pm-btn-block { width: 100%; }
 
@@ -94,12 +97,17 @@
 .pm-ok { color: var(--pm-ok); font-weight: 600; }
 .pm-error { color: var(--pm-err); background: #fef3f2; border: 1px solid #fecdca; padding: 10px 14px; border-radius: 8px; }
 
-.pm-login { max-width: 420px; margin: 40px auto; background: #fff; border: 1px solid var(--pm-line); border-radius: 16px; padding: 32px; text-align: center; }
-.pm-login-logo { max-height: 60px; margin: 0 auto 16px; display: block; }
-.pm-login h2 { margin: 0 0 6px; font-size: 30px; }
-.pm-login form { text-align: left; margin-top: 20px; }
-.pm-login label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 14px; }
-.pm-login input { display: block; width: 100%; margin-top: 6px; padding: 11px 12px; border: 1px solid #d0d5dd; border-radius: 8px; font-size: 16px; }
+.pm-login { max-width: 580px; margin: 48px auto; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(44, 62, 80, .12); }
+.pm-login-head { background: var(--pm-primary); padding: 40px 24px; text-align: center; }
+.pm-login-head .pm-wordmark { color: #fff; font-size: 32px; }
+.pm-login-logo { max-height: 56px; margin: 0 auto; display: block; }
+.pm-login-body { padding: 36px 46px 44px; }
+.pm-login-sub { text-align: center; color: var(--pm-muted); margin: 0 0 22px; }
+.pm-login label { display: block; font-weight: 700; font-size: 17px; color: #3a3f47; margin-bottom: 22px; }
+.pm-login input { display: block; width: 100%; margin-top: 10px; padding: 18px 20px; border: 1px solid #d5dbe5; border-radius: 6px; font-size: 19px; background: #fff; }
+.pm-login input:focus { outline: 2px solid var(--pm-button); outline-offset: 0; border-color: var(--pm-button); }
+.pm-btn-login { padding: 20px; font-size: 19px; border-radius: 8px; box-shadow: 0 8px 20px rgba(33, 83, 135, .25); margin-top: 8px; }
+.pm-login-error { color: #c0392b; text-align: center; margin: 18px 0 0; }
 
 .pm-celebrate { position: fixed; inset: 0; z-index: 99999; background: rgba(10, 18, 32, .78); display: flex; align-items: center; justify-content: center; padding: 16px; }
 .pm-celebrate[hidden] { display: none; }
@@ -111,5 +119,6 @@
 
 @media (max-width: 600px) {
 	.pm-hero, .pm-card { padding: 20px 16px; }
-	.pm-login { padding: 24px 16px; margin: 16px auto; }
+	.pm-login { margin: 16px auto; }
+	.pm-login-body { padding: 28px 20px 32px; }
 }

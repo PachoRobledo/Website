@@ -15,13 +15,13 @@ $pm_name = $pm_name ? $pm_name : $user->display_name;
 <meta name="robots" content="noindex,nofollow">
 <title>Certificado de muestra · <?php echo esc_html( $s['program_name'] ); ?></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
 	:root { --p: <?php echo esc_attr( $s['primary_color'] ); ?>; --a: <?php echo esc_attr( $s['accent_color'] ); ?>; }
 	* { box-sizing: border-box; }
-	body { margin: 0; background: #eef0f3; font-family: Inter, system-ui, sans-serif; color: #1d2433; }
+	body { margin: 0; background: #eef0f3; font-family: Lato, system-ui, sans-serif; color: #1d2433; }
 	.bar { display: flex; gap: 10px; justify-content: center; padding: 16px; flex-wrap: wrap; }
-	.bar button, .bar a { font: 600 14px Inter, sans-serif; border: 0; border-radius: 8px; padding: 10px 18px; cursor: pointer; text-decoration: none; background: var(--p); color: #fff; }
+	.bar button, .bar a { font: 600 14px Lato, sans-serif; border: 0; border-radius: 8px; padding: 10px 18px; cursor: pointer; text-decoration: none; background: var(--p); color: #fff; }
 	.bar a { background: #fff; color: var(--p); border: 1px solid var(--p); }
 	.wrap { padding: 0 16px 32px; display: flex; justify-content: center; }
 	.cert { position: relative; width: 1100px; max-width: 100%; aspect-ratio: 1.414 / 1; background: #fffdf8; overflow: hidden;
@@ -30,21 +30,21 @@ $pm_name = $pm_name ? $pm_name : $user->display_name;
 	.frame::after { content: ""; position: absolute; inset: 8px; border: 1px solid var(--a); }
 	.content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 6%; }
 	.logo { max-height: 70px; max-width: 220px; margin-bottom: 2%; }
-	.program { font: 600 clamp(11px, 1.4vw, 15px) Inter, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--a); }
-	h1 { font: 700 clamp(26px, 5vw, 58px) "Cormorant Garamond", serif; color: var(--p); margin: 1% 0 2%; }
+	.program { font: 600 clamp(11px, 1.4vw, 15px) Lato, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--a); }
+	h1 { font: 700 clamp(26px, 5vw, 58px) Merriweather, Georgia, serif; color: var(--p); margin: 1% 0 2%; }
 	.lead { font-size: clamp(11px, 1.4vw, 16px); color: #5a6273; margin: 0; }
-	.name { font: 700 clamp(28px, 5.4vw, 64px) "Cormorant Garamond", serif; margin: 2% 0 1%; padding: 0 4% 1%; border-bottom: 2px solid var(--a); }
+	.name { font: 700 clamp(28px, 5.4vw, 64px) Merriweather, Georgia, serif; margin: 2% 0 1%; padding: 0 4% 1%; border-bottom: 2px solid var(--a); }
 	.what { font-size: clamp(12px, 1.5vw, 18px); max-width: 720px; line-height: 1.5; margin: 2% 0 4%; }
 	.what strong { color: var(--p); }
 	.foot { display: flex; justify-content: space-between; width: 100%; max-width: 760px; gap: 24px; font-size: clamp(10px, 1.2vw, 13px); color: #5a6273; }
 	.foot div { flex: 1; border-top: 1px solid #c8ccd4; padding-top: 6px; }
 	.foot strong { display: block; color: #1d2433; font-size: 1.1em; }
 	.watermark { position: absolute; inset: 0; z-index: 3; pointer-events: none; display: flex; align-items: center; justify-content: center; }
-	.watermark span { font: 800 clamp(90px, 22vw, 260px) Inter, sans-serif; color: rgba(200, 30, 30, .16); transform: rotate(-28deg); letter-spacing: .08em;
+	.watermark span { font: 800 clamp(90px, 22vw, 260px) Lato, sans-serif; color: rgba(200, 30, 30, .16); transform: rotate(-28deg); letter-spacing: .08em;
 		-webkit-text-stroke: 2px rgba(200, 30, 30, .25); }
 	.tile { position: absolute; inset: -20%; z-index: 1; pointer-events: none; transform: rotate(-28deg); display: flex; flex-wrap: wrap; gap: 30px 60px; align-content: flex-start;
-		font: 700 18px Inter, sans-serif; color: rgba(200, 30, 30, .06); }
-	.tag { position: absolute; z-index: 4; top: 4.5%; right: 4.5%; background: #c81e1e; color: #fff; font: 700 11px Inter, sans-serif; letter-spacing: .15em; padding: 6px 10px; border-radius: 4px; }
+		font: 700 18px Lato, sans-serif; color: rgba(200, 30, 30, .06); }
+	.tag { position: absolute; z-index: 4; top: 4.5%; right: 4.5%; background: #c81e1e; color: #fff; font: 700 11px Lato, sans-serif; letter-spacing: .15em; padding: 6px 10px; border-radius: 4px; }
 	@media print {
 		@page { size: A4 landscape; margin: 0; }
 		body { background: #fff; }
@@ -70,7 +70,7 @@ $pm_name = $pm_name ? $pm_name : $user->display_name;
 				<?php if ( $s['logo_url'] ) : ?>
 					<img class="logo" src="<?php echo esc_url( $s['logo_url'] ); ?>" alt="" crossorigin="anonymous">
 				<?php endif; ?>
-				<div class="program"><?php echo esc_html( $s['program_name'] ); ?></div>
+				<div class="program"><?php echo esc_html( $s['program_name'] ); ?>®</div>
 				<h1>Certificado de Finalización</h1>
 				<p class="lead">Se otorga con reconocimiento a</p>
 				<div class="name"><?php echo esc_html( $pm_name ); ?></div>
