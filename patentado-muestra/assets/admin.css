@@ -1,0 +1,19 @@
+.pm-admin .pm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
+.pm-admin .pm-stats div { background: #fff; border: 1px solid #dcdcde; border-radius: 8px; padding: 14px 16px; }
+.pm-admin .pm-stats strong { display: block; font-size: 26px; line-height: 1.2; }
+.pm-admin .pm-stats span { color: #646970; }
+.pm-admin .pm-card { background: #fff; border: 1px solid #dcdcde; border-radius: 8px; padding: 4px 16px 16px; margin-bottom: 16px; }
+.pm-admin .pm-add-form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.pm-admin .pm-add-form label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+.pm-admin .pm-add-form .pm-check { flex-direction: row; align-items: center; font-weight: 400; }
+.pm-admin .pm-credentials { background: #f0f6fc; border: 1px solid #72aee6; border-left-width: 4px; padding: 4px 16px 16px; margin: 16px 0; }
+.pm-admin .pm-credentials textarea { width: 100%; max-width: 560px; font-family: monospace; }
+.pm-admin .pm-warn { color: #b32d2e; }
+.pm-admin .pm-muted { color: #646970; }
+.pm-admin .pm-bar { width: 110px; height: 8px; background: #f0f0f1; border-radius: 99px; overflow: hidden; }
+.pm-admin .pm-bar span { display: block; height: 100%; background: #2271b1; }
+.pm-admin .pm-pill { display: inline-block; padding: 2px 8px; border-radius: 99px; background: #f0f0f1; font-size: 12px; }
+.pm-admin .pm-pill-done { background: #d1fae5; color: #065f46; }
+.pm-admin .pm-pill-progress { background: #fef3c7; color: #92400e; }
+.pm-admin .pm-actions a { display: block; margin-bottom: 3px; }
+.pm-admin .pm-danger { color: #b32d2e; }
